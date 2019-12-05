@@ -1,0 +1,359 @@
+[
+    {
+        "id": 4699313,
+        "name": "Doppelte Salatschale",
+        "category": "Salate",
+        "prices": {
+            "students": 3.15,
+            "employees": 6.3,
+            "pupils": null,
+            "others": 6.95
+        },
+        "notes": ["Sellerie", "Süßungsmittel", "vegan", "grün (Ampel)"]
+    },
+    {
+        "id": 4699314,
+        "name": "Kleine Salatschale",
+        "category": "Salate",
+        "prices": {
+            "students": 0.65,
+            "employees": 1.3,
+            "pupils": null,
+            "others": 1.45
+        },
+        "notes": ["Sellerie", "Süßungsmittel", "vegan", "grün (Ampel)"]
+    },
+    {
+        "id": 4699316,
+        "name": "Sauce Vinaigrette",
+        "category": "Salate",
+        "prices": {
+            "students": null,
+            "employees": null,
+            "pupils": null,
+            "others": null
+        },
+        "notes": ["Senf", "vegan", "rot (Ampel)"]
+    },
+    {
+        "id": 4699315,
+        "name": "Joghurtdressing",
+        "category": "Salate",
+        "prices": {
+            "students": null,
+            "employees": null,
+            "pupils": null,
+            "others": null
+        },
+        "notes": [
+            "Senf",
+            "Schwefeldioxid und Sulfide",
+            "Milch und Milchprodukte (inkl. Laktose)",
+            "Eier",
+            "Weizen",
+            "Antioxidationsmittel",
+            "vegetarisch",
+            "rot (Ampel)"
+        ]
+    },
+    {
+        "id": 4699317,
+        "name": "American Dressing",
+        "category": "Salate",
+        "prices": {
+            "students": null,
+            "employees": null,
+            "pupils": null,
+            "others": null
+        },
+        "notes": [
+            "Senf",
+            "Milch und Milchprodukte (inkl. Laktose)",
+            "Eier",
+            "Weizen",
+            "Süßungsmittel",
+            "Antioxidationsmittel",
+            "vegetarisch",
+            "gelb (Ampel)"
+        ]
+    },
+    {
+        "id": 4699318,
+        "name": "Fish & Chips - gebackenes Seelachsfilet mit Pommes frites, Salat",
+        "category": "Aktionen",
+        "prices": {
+            "students": 5.95,
+            "employees": 6.55,
+            "pupils": null,
+            "others": 7.15
+        },
+        "notes": [
+            "Senf",
+            "Milch und Milchprodukte (inkl. Laktose)",
+            "Fisch",
+            "Eier",
+            "Gerste",
+            "Weizen",
+            "Süßungsmittel",
+            "Farbstoff",
+            "Antioxidationsmittel",
+            "MSC",
+            "gelb (Ampel)"
+        ]
+    },
+    {
+        "id": 4699319,
+        "name": "Eine pfannenfrische Bratwurst an Zwiebel-Majoran-Jus",
+        "category": "Essen",
+        "prices": {
+            "students": 2.1,
+            "employees": 4.2,
+            "pupils": null,
+            "others": 4.6
+        },
+        "notes": [
+            "Senf",
+            "Sellerie",
+            "Schweinefleisch bzw. mit Gelatine vom Schwein",
+            "bio",
+            "rot (Ampel)"
+        ]
+    },
+    {
+        "id": 4699321,
+        "name": "Kürbis-Gemüse-Ragout mit Buchweizen",
+        "category": "Essen",
+        "prices": {
+            "students": 2.75,
+            "employees": 5.5,
+            "pupils": null,
+            "others": 6.05
+        },
+        "notes": [
+            "Soja",
+            "Sellerie",
+            "Antioxidationsmittel",
+            "Klimaessen",
+            "vegan",
+            "grün (Ampel)"
+        ]
+    },
+    {
+        "id": 4699320,
+        "name": "Zartes Kalbsgulasch mit Waldpilzen in Rahm und frischem Rosmarin",
+        "category": "Essen",
+        "prices": {
+            "students": 2.45,
+            "employees": 4.9,
+            "pupils": null,
+            "others": 5.4
+        },
+        "notes": [
+            "Milch und Milchprodukte (inkl. Laktose)",
+            "Antioxidationsmittel",
+            "gelb (Ampel)"
+        ]
+    },
+    {
+        "id": 4699322,
+        "name": "Zwei Spinat-Dinkel-Medaillons an Tomaten-Kurkuma-Sauce",
+        "category": "Essen",
+        "prices": {
+            "students": 1.55,
+            "employees": 3.1,
+            "pupils": null,
+            "others": 3.4
+        },
+        "notes": [
+            "Milch und Milchprodukte (inkl. Laktose)",
+            "Sellerie",
+            "Eier",
+            "Dinkel",
+            "Weizen",
+            "Antioxidationsmittel",
+            "vegetarisch",
+            "gelb (Ampel)"
+        ]
+    },
+    {
+        "id": 4699323,
+        "name": "Bunter Zucchinieintopf mit Kartoffeln und roten Bohnen",
+        "category": "Essen",
+        "prices": {
+            "students": 1.45,
+            "employees": 2.9,
+            "pupils": null,
+            "others": 3.2
+        },
+        "notes": ["Soja", "Antioxidationsmittel", "vegan", "grün (Ampel)"]
+    },
+    {
+        "id": 4699324,
+        "name": "Blumenkohl",
+        "category": "Beilagen",
+        "prices": {
+            "students": 0.6,
+            "employees": 1.2,
+            "pupils": null,
+            "others": 1.3
+        },
+        "notes": ["vegan", "grün (Ampel)"]
+    },
+    {
+        "id": 4741188,
+        "name": "Zwei Semmelknödel",
+        "category": "Beilagen",
+        "prices": {
+            "students": 0.75,
+            "employees": 1.5,
+            "pupils": null,
+            "others": 1.65
+        },
+        "notes": ["Hefe", "Eier", "Weizen", "vegetarisch", "gelb (Ampel)"]
+    },
+    {
+        "id": 4699325,
+        "name": "Sauerkraut",
+        "category": "Beilagen",
+        "prices": {
+            "students": 0.65,
+            "employees": 1.3,
+            "pupils": null,
+            "others": 1.45
+        },
+        "notes": ["bio", "vegan", "grün (Ampel)"]
+    },
+    {
+        "id": 4699326,
+        "name": "Kartoffeln",
+        "category": "Beilagen",
+        "prices": {
+            "students": 0.6,
+            "employees": 1.2,
+            "pupils": null,
+            "others": 1.3
+        },
+        "notes": ["vegan", "grün (Ampel)"]
+    },
+    {
+        "id": 4699328,
+        "name": "Gewürzreis",
+        "category": "Beilagen",
+        "prices": {
+            "students": 0.6,
+            "employees": 1.2,
+            "pupils": null,
+            "others": 1.3
+        },
+        "notes": ["vegan", "gelb (Ampel)"]
+    },
+    {
+        "id": 4699330,
+        "name": "Fruchtcocktail",
+        "category": "Desserts",
+        "prices": {
+            "students": 0.65,
+            "employees": 1.3,
+            "pupils": null,
+            "others": 1.45
+        },
+        "notes": ["Farbstoff", "grün (Ampel)"]
+    },
+    {
+        "id": 4699329,
+        "name": "Naturquark",
+        "category": "Desserts",
+        "prices": {
+            "students": 0.65,
+            "employees": 1.3,
+            "pupils": null,
+            "others": 1.45
+        },
+        "notes": [
+            "Milch und Milchprodukte (inkl. Laktose)",
+            "vegetarisch",
+            "grün (Ampel)"
+        ]
+    },
+    {
+        "id": 4699332,
+        "name": "Krokantjoghurt mit Honig",
+        "category": "Desserts",
+        "prices": {
+            "students": 0.65,
+            "employees": 1.3,
+            "pupils": null,
+            "others": 1.45
+        },
+        "notes": [
+            "Milch und Milchprodukte (inkl. Laktose)",
+            "Haselnuss",
+            "Antioxidationsmittel",
+            "vegetarisch",
+            "grün (Ampel)"
+        ]
+    },
+    {
+        "id": 4699331,
+        "name": "Cappuccino-Sahne-Quark",
+        "category": "Desserts",
+        "prices": {
+            "students": 0.65,
+            "employees": 1.3,
+            "pupils": null,
+            "others": 1.45
+        },
+        "notes": [
+            "Milch und Milchprodukte (inkl. Laktose)",
+            "koffeinhaltig",
+            "vegetarisch",
+            "gelb (Ampel)"
+        ]
+    },
+    {
+        "id": 4699334,
+        "name": "Schokoladenpudding",
+        "category": "Desserts",
+        "prices": {
+            "students": 0.65,
+            "employees": 1.3,
+            "pupils": null,
+            "others": 1.45
+        },
+        "notes": [
+            "Milch und Milchprodukte (inkl. Laktose)",
+            "Soja",
+            "vegetarisch",
+            "gelb (Ampel)"
+        ]
+    },
+    {
+        "id": 4699333,
+        "name": "Vanillepudding",
+        "category": "Desserts",
+        "prices": {
+            "students": 0.65,
+            "employees": 1.3,
+            "pupils": null,
+            "others": 1.45
+        },
+        "notes": [
+            "Milch und Milchprodukte (inkl. Laktose)",
+            "Antioxidationsmittel",
+            "vegetarisch",
+            "gelb (Ampel)"
+        ]
+    },
+    {
+        "id": 4699335,
+        "name": "Aprikosenkompott",
+        "category": "Desserts",
+        "prices": {
+            "students": 0.6,
+            "employees": 1.2,
+            "pupils": null,
+            "others": 1.3
+        },
+        "notes": ["Antioxidationsmittel", "vegan", "grün (Ampel)"]
+    }
+]
