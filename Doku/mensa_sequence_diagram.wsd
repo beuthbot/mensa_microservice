@@ -1,0 +1,12 @@
+
+other_component -> meals.js : POST: message
+meals.js -> mealService.js : message.date, message.filter
+mealService.js -> OpenMensa_API : Request /meals/date
+mealService.js <- OpenMensa_API : JSON-Object
+mealService.js -> mealService.js : filter JSON-Object
+mealService.js -> generateResponse.js : generate nicely formatted response
+mealService.js <- generateResponse.js
+mealService.js -> meals.js : nicely formatted response
+meals.js -> meals.js : append reponse to message object
+meals.js -> other_component : send message object back
+
