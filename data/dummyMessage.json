@@ -1,0 +1,8 @@
+{
+    "userID": 1234,
+    "message": "Ich hätte gerne für heute die Gerichte der Mensa, aber nur die Vegetarischen und mit einer grünen Ampel.",
+    "evaluatedMessage": {
+        "date": "2019-11-14",
+        "filter": ["vegetarisch", "grün"]
+    }
+}

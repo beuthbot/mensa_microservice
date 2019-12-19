@@ -9,7 +9,7 @@ module.exports = {
             const response = await axios.get(
                 `https://openmensa.org/api/v2/canteens/49/days/${date}/meals/`
             )
-            console.log(response.data)
+            // console.log(response.data)
 
             await fileSystem.writeFile(
                 'data/mealsOfTheDay.json',

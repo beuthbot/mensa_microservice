@@ -3,8 +3,9 @@ const answer = require('../data/answer.json')
 const fileSystem = require('fs')
 
 module.exports = {
+    // generate an answer with the meal of the day
     generateAnswer: () => {
-        let messageText = 'Hey, heute gibts folgendes zum futtern: \n'
+        let messageText = 'Hey, heute gibts folgendes zum futtern: \n\n'
         mealsOfTheDay.forEach(meal => {
             messageText +=
                 '\n' +
@@ -23,7 +24,7 @@ module.exports = {
                 messageText += note + ', '
             })
             messageText =
-                messageText.substring(0, messageText.length - 2) + '\n\n'
+                messageText.substring(0, messageText.length - 2) + '\n'
         })
 
         answer.content = messageText
@@ -39,5 +40,32 @@ module.exports = {
                 }
             }
         )
+    },
+
+    // generate an answer with meals of a specific day and filters
+    generateSpecificDayAnswer: async meals => {
+        let messageText = 'Hey, heute gibts folgendes zum futtern: \n\n'
+
+        JSON.parse(meals).forEach(meal => {
+            messageText +=
+                '\n' +
+                meal.name +
+                '\n' +
+                'Prices: \n' +
+                'Students: ' +
+                meal.prices.students +
+                ' Employees: ' +
+                meal.prices.employees +
+                ' Andere: ' +
+                meal.prices.others +
+                '\n' +
+                'Inhaltsstoffe: '
+            meal.notes.forEach(note => {
+                messageText += note + ', '
+            })
+            messageText =
+                messageText.substring(0, messageText.length - 2) + '\n'
+        })
+        return messageText
     }
 }
