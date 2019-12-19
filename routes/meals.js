@@ -16,31 +16,52 @@ router.post('/', async (req, res, next) => {
     let message = req.body
     let dateOfMessage = message.evaluatedMessage.date
     let mealFilters = message.evaluatedMessage.filter
+    console.log(mealFilters)
 
+    if (dateOfMessage === undefined || dateOfMessage === '') {
+        let answerText =
+            'Sorry, ich konnte leider kein Datum feststellen. Gib bitte ein Datum an für das du den Mensaplan haben willst.'
+        message.answer = { content: answerText, history: 'MensaService' }
+        res.send(message)
+    } else {
+        if (!Array.isArray(mealFilters)) {
+            mealFilters = [mealFilters]
+        } else if (mealFilters === undefined) {
+            mealFilters = ['']
+        } else {
+            let meals = await mealsOfSpecificDayService.filterMeals(
+                mealFilters,
+                dateOfMessage
+            )
+            let answerText = await generatedMessage.generateSpecificDayAnswer(
+                meals
+            )
+            message.answer = { content: answerText, history: 'MensaService' }
+            res.send(message)
+        }
+    }
+
+    console.log(mealFilters)
+
+    // res.send(message)
+    // console.log('Yay its the same!')
     // console.log(message)
 
-    if (dateOfMessage !== todaysDate) {
-        let meals = await mealsOfSpecificDayService.filterMeals(
-            mealFilters,
-            dateOfMessage
-        )
-        let answerText = await generatedMessage.generateSpecificDayAnswer(meals)
+    // if (dateOfMessage !== todaysDate) {
+    //     let meals = await mealsOfSpecificDayService.filterMeals(
+    //         mealFilters,
+    //         dateOfMessage
+    //     )
+    //     let answerText = await generatedMessage.generateSpecificDayAnswer(meals)
 
-        res.format({
-            'text/plain': () => {
-                res.send(answerText)
-            }
-        })
-        // console.log(answerText)
-        // console.log(meals)
-    } else {
-        res.format({
-            'text/plain': () => {
-                res.send(answer.content)
-            }
-        })
-        console.log('Yay its the same!')
-    }
+    //     res.format({
+    //         'text/plain': () => {
+    //             res.send(answerText)
+    //         }
+    //     })
+    //     // console.log(answerText)
+    //     // console.log(meals)
+    // } else {
 })
 
 module.exports = router
