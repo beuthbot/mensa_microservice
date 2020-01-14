@@ -1,29 +1,27 @@
-# Mensa microservice
+# Mensa microservice <!-- omit in toc -->
 
 A microservice for a Chatbot developed at the Beuth University of Applied Sciences Berlin
 
-## Table of content
+## Table of content <!-- omit in toc -->
 
-- [Mensa microservice](#mensa-microservice)
-  - [Table of content](#table-of-content)
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Cloning](#cloning)
-    - [Installing](#installing)
-  - [Overview](#overview)
-    - [Structure](#structure)
-    - [Functionalities](#functionalities)
-      - [The scripts-folder](#the-scripts-folder)
-      - [The services-folder](#the-services-folder)
-          - [generateResponse.js](#generateresponsejs)
-          - [mealService.js](#mealservicejs)
-          - [mealsOfSpecificDayService.js](#mealsofspecificdayservicejs)
-      - [The routes-folder](#the-routes-folder)
-  - [Further Development](#further-development)
-  - [Further Reading](#further-reading)
-  - [Built With](#built-with)
-  - [Versioning](#versioning)
-  - [Authors](#authors)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Cloning](#cloning)
+  - [Installing](#installing)
+- [Overview](#overview)
+  - [Structure](#structure)
+  - [Functionalities](#functionalities)
+    - [The scripts-folder](#the-scripts-folder)
+    - [The services-folder](#the-services-folder)
+      - [generateResponse.js](#generateresponsejs)
+      - [mealService.js](#mealservicejs)
+      - [mealsOfSpecificDayService.js](#mealsofspecificdayservicejs)
+    - [The routes-folder](#the-routes-folder)
+- [Further Development](#further-development)
+- [Further Reading](#further-reading)
+- [Built With](#built-with)
+- [Versioning](#versioning)
+- [Authors](#authors)
 
 ## Getting Started
 
@@ -35,7 +33,6 @@ A microservice for a Chatbot developed at the Beuth University of Applied Scienc
 ### Cloning
 
 Get the source code by cloning its repository via https: [mensa_microservice] (https://github.com/Onkilchen/mensa_microservice.git)
-
 
 ### Installing
 
@@ -81,15 +78,15 @@ This folder contains two scripts, that will be called by a cron job once a day. 
 
 This folder consists of several services, that perform specific tasks for the microservice.
 
-###### generateResponse.js
+##### generateResponse.js
 
 Creates a nicely formatted string from a mensa-JSON-object and caches it.
 
-###### mealService.js
+##### mealService.js
 
 Makes a request to the OpenMensa-API and caches the response. It can also filter the file for specific meals. For example only vegetarian or vegan meals, etc.
 
-###### mealsOfSpecificDayService.js
+##### mealsOfSpecificDayService.js
 
 If a day other than the current day is requested, we need to make another request to the OpenMensa-API, fetch the meals for that specific day, cache them and maybe need to filter them. This is all done by this script.
 
