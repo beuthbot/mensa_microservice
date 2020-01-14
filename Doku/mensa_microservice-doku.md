@@ -11,7 +11,6 @@ A microservice for a Chatbot developed at the Beuth University of Applied Scienc
 - [Overview](#overview)
   - [Structure](#structure)
   - [Functionalities](#functionalities)
-    - [The scripts-folder](#the-scripts-folder)
     - [The services-folder](#the-services-folder)
       - [generateResponse.js](#generateresponsejs)
       - [mealService.js](#mealservicejs)
@@ -64,15 +63,11 @@ The mensa microservice is basically a _Node_-_Express_-Backend. Incoming request
 
 ### Structure
 
-The microservice consists of four folders containing several scripts, which are designated to perform certain tasks. We have the *scripts*-folder containing scripts, that will be called by cron-jobs mainly for caching purposes. Then we have the *services*-folder containing files, that consist of functions useful to process incoming requests from the chatbot and to generate a formatted answer-string, that contains the requested meal-menu of a specific day from the Beuth mensa. The *routes*-folder consists of all the routes, that can be addressed. In the next chapters we will get into more details about the scripts and their functions.
+The microservice consists of four folders containing several scripts, which are designated to perform certain tasks. We have the *services*-folder containing files, that consist of functions useful to process incoming requests from the chatbot and to generate a formatted answer-string, that contains the requested meal-menu of a day from the Beuth mensa. The *routes*-folder consists of all the routes, that can be addressed. In the next chapters we will get into more details about the scripts and their functions.
 
 ### Functionalities
 
 On request, this microservice makes calls to the [OpenMensa API](https://doc.openmensa.org/api/v2/). The received data is processed by services that give a list of filtered and unfiltered meals of the mensa of the Beuth University for Applied Sciences. Mainly this service was built throughout the Masterprojekt module that is a mandatory part of the media informatics master course of the Beuth University for Applied Sciences.
-
-#### The scripts-folder
-
-This folder contains two scripts, that will be called by a cron job once a day. Probably early in the morning. `getMealsOfTheDay.js` makes a request to the [OpenMensa API](https://doc.openmensa.org/api/v2/) and caches the answer. After that `writeResponseFile.json` is called and generates a pretty formatted answer-string. Now everytime a User wants to know the meals for the day, we can just read it out of the cached data.
 
 #### The services-folder
 
@@ -80,15 +75,11 @@ This folder consists of several services, that perform specific tasks for the mi
 
 ##### generateResponse.js
 
-Creates a nicely formatted string from a mensa-JSON-object and caches it.
-
-##### mealService.js
-
-Makes a request to the OpenMensa-API and caches the response. It can also filter the file for specific meals. For example only vegetarian or vegan meals, etc.
+Creates a nicely formatted string from a mensa-JSON-object.
 
 ##### mealsOfSpecificDayService.js
 
-If a day other than the current day is requested, we need to make another request to the OpenMensa-API, fetch the meals for that specific day, cache them and maybe need to filter them. This is all done by this script.
+If a day is requested, we need to make a request to the OpenMensa-API, fetch the meals for that day, cache them and maybe need to filter them. This is all done by this script.
 
 #### The routes-folder
 
@@ -112,11 +103,11 @@ This is still a work in progress, so functionalities and structure might still c
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/<you>/<your-repo>/tags).
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/Onkilchen/mensa_microservice/tags).
 
 ## Authors
 
-- **Tolga Karaoglu**
-- **Steven Sobkowski**
+- [**Tolga Karaoglu**](https://github.com/Onkilchen)
+- [**Steven Sobkowski**](https://github.com/MisterZurk0n)
 
-See also the list of [contributors](https://github.com/<you>/<your-repo>/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/Onkilchen/mensa_microservice/contributors) who participated in this project.

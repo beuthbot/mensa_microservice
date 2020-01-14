@@ -3,25 +3,21 @@ info:
   title: MensaService
   description:
     This is a server, that caches the meals of a mensa. It can fetch you
-    the meals of a certain day or can give you specific details about a meal.
+    the meals of a certain day and filter them after given criteria.
 servers:
   - url: http://localhost:8000
 tags:
   - name: meals
-    description: All the meals for a day
+    description: All the meals of a specific day, filtered if you provide the information needed
     externalDocs:
       description: Find out more
       url: https://openmensa.org/
-  - name: meal
-    description: Details for a specific meal
-  - name: response
-    description: Generates a response to a request
 paths:
-  /response:
+  /meals:
     post:
       tags:
-        - response
-      summary: Returns Json-Object containing the requested meals
+        - meals
+      summary: Returns JSON-Object containing the requested meals
       operationId: generateResponse
       requestBody:
         description: message object, containing the date, filters or a specific meal
@@ -45,119 +41,6 @@ paths:
           content: {}
       x-codegen-request-body-name: body
       x-swagger-router-controller: Response
-  /meals/{date}:
-    get:
-      tags:
-        - meals
-      summary: Finds meals by date
-      description: Finds meals with the given date
-      operationId: findMealsByDate
-      parameters:
-        - name: date
-          in: path
-          description: date value, that is needed to find the meals for this day
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
-      responses:
-        "200":
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/meals"
-                x-content-type: application/json
-        "400":
-          description: Invalid status value
-          content: {}
-      x-swagger-router-controller: Meals
-  /meals/{date}/filter:
-    get:
-      tags:
-        - meals
-      summary: Finds Meals by filter
-      description:
-        Muliple filters can be provided with comma separated strings. Use
-        filter1, filter2, filter3 for testing.
-      operationId: findMealsByFilter
-      parameters:
-        - name: filter
-          in: query
-          description: filters for the meals, like vegan, vegetarian...
-          required: true
-          style: form
-          explode: true
-          schema:
-            type: array
-            items:
-              type: string
-        - name: date
-          in: path
-          description: the date for which the meals are supposed to be fetched
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
-      responses:
-        "200":
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/meals"
-                x-content-type: application/json
-        "400":
-          description: Invalid filter value
-          content: {}
-      x-swagger-router-controller: Meals
-  /meals/{date}/{mealId}:
-    get:
-      tags:
-        - meal
-      summary: Find meal by ID
-      description: Returns a single meal
-      operationId: getMealById
-      parameters:
-        - name: mealId
-          in: path
-          description: ID of meal to return
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: integer
-            format: int64
-        - name: date
-          in: path
-          description: the date for which the meals are supposed to be fetched
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
-      responses:
-        "200":
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/meal"
-        "400":
-          description: Invalid ID supplied
-          content: {}
-        "404":
-          description: Meal not found
-          content: {}
-      security:
-        - api_key: []
-      x-swagger-router-controller: Meal
 components:
   schemas:
     message:
@@ -176,17 +59,24 @@ components:
       properties:
         message:
           $ref: "#/components/schemas/APIresponse_message"
-        response:
-          type: string
-          description: a nicely formatted string, containing the requested meals
+        answer:
+          type: object
+          properties:
+            content:
+              type: string
+              description: a nicely formatted string, containing the requested meals
+            history:
+              type: string
+              description: history for debugging purposes
       example:
-        response: response
-        message:
-          evaluatedMessage:
-            date: 2000-01-23T04:56:07.000+00:00
-            filters: filters
-          message: message
-          userID: 0
+        userID: 0,
+        message: message
+        evaluatedMessage:
+          date: yyyy-mm-dd
+          filter: ["filters"]
+        answer:
+          content: answerstring
+          history: MensaService
     meals:
       type: array
       items:
@@ -228,13 +118,13 @@ components:
         date:
           type: string
           format: date-time
-        filters:
-          type: string
+        filter:
+          type: array
           description: filters for meals, seperated by commas
       description: the evaluated method of the NLU
       example:
-        date: 2000-01-23T04:56:07.000+00:00
-        filters: filters
+        date: yyyy-mm-dd
+        filter: ["filters"]
     APIresponse_message:
       type: object
       properties:
@@ -248,8 +138,8 @@ components:
           $ref: "#/components/schemas/message_evaluatedMessage"
       example:
         evaluatedMessage:
-          date: 2000-01-23T04:56:07.000+00:00
-          filters: filters
+          date: yyyy-mm-dd
+          filter: ["filters"]
         message: message
         userID: 0
     meals_inner:
