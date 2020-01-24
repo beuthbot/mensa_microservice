@@ -5,11 +5,12 @@ module.exports = {
      */
     generateSpecificDayAnswer: async meals => {
         // empty message text that has to be filled and parsed
+	meals = JSON.parse(meals)
         let messageText = ''
 
         // if the date is on a day where the mensa is closed, fill messageText accordingly and return it
-        if (meals.length === 2) {
-            messageText = 'Die Mensa hat an Wochenende nicht geöffnet!'
+        if (meals.length === 0) {
+            messageText = 'Die Mensa hat an Wochenende nicht geöffnet oder nichts gefunden!'
             return messageText
         } else {
             /**
@@ -17,7 +18,7 @@ module.exports = {
              * by providing all the necessary informations like name, prices, etc.
              */
             messageText = 'Hey, heute gibts folgendes zum futtern: \n\n'
-            JSON.parse(meals).forEach(meal => {
+            meals.forEach(meal => {
                 messageText +=
                     '\n' +
                     meal.name +

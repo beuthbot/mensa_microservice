@@ -10,28 +10,24 @@ module.exports = {
      */
     filterMeals: async (mealFilters, date) => {
         try {
-            let mealsOfSpecificDay = await axios.get(
-                `https://openmensa.org/api/v2/canteens/49/days/${date}/meals/`
-            )
+            let url = `https://openmensa.org/api/v2/canteens/49/days/${date}/meals/`
+            console.debug(url)
+            let mealsOfSpecificDay = await axios.get(url)
             //we use a set, because it only holds unique values and don't get a meal twice
             let filteredMeals = new Set([])
             //boolean required for filtering
-            let containsAllFilters = false
+            let containsAllFilters = true
             //loop over each meal...
             mealsOfSpecificDay.data.forEach(meal => {
                 //...and for each meal, loop over the filter words
+		containsAllFilters = true
                 for (i in mealFilters) {
                     if (
-                        //check if notes array contains a filter word
-                        meal.notes.some(note => note.includes(mealFilters[i]))
+                        !meal.notes.some(note => note.includes(mealFilters[i]))
                     ) {
-                        //if so, set the boolean to true
-                        containsAllFilters = true
-                    } else {
-                        //if not, set boolean to false and get out of the loop, because then we don't need that meal
-                        //in our response
-                        containsAllFilters = false
-                        break
+			console.log("skipping " + meal)
+			containsAllFilters = false
+			break
                     }
                 } //for
                 if (containsAllFilters) {

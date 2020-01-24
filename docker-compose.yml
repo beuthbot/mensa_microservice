@@ -1,20 +1,7 @@
-# https://docs.docker.com/compose/compose-file/
-version: "2.0"
-
+version: '3.7'
 services:
-  mensa-microservice:
-    container_name: mensa-microservice
-    privileged: true
-    build:
-      context: ./
-    restart: always
-    networks:
-      - web
-    expose:
-      - 8000
-    volumes:
-      - .:/app
+  mensa:
+    build: .
+    ports:
+      - 9950:8000
 
-networks:
-  web:
-    external: true
