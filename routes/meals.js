@@ -18,7 +18,7 @@ router.post('/', async (req, res, next) => {
     // the items, after which we should filter the meals. E.g. vegetarian, vegan,...
     let mealFilters = []
 
-    let entities = ["Nachtisch", "Milchprodukte", "Allergene", "Piktogramme", "Zusatzstoffe", "Speisen"]
+    let entities = ["Piktogramme", "Speisen", "Allergene", "Zusatzstoffe", "Nachtisch"]
 
     message.entities.forEach(function(value, index, array) {
 	if (value.entity == 'time') {
