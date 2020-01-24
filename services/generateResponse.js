@@ -3,7 +3,7 @@ module.exports = {
      * @method generateSpecificDayAnswer generates and returns an async answer based on an array that stores the meals of a specific day
      * @param meals an array with meals of a specific day
      */
-    generateSpecificDayAnswer: async meals => {
+    generateSpecificDayAnswer: async (date, meals) => {
         // empty message text that has to be filled and parsed
 	meals = JSON.parse(meals)
         let messageText = ''
@@ -17,7 +17,7 @@ module.exports = {
              * @param meal a meal from the array of meals that is used to fill the message
              * by providing all the necessary informations like name, prices, etc.
              */
-            messageText = 'Hey, heute gibts folgendes zum futtern: \n\n'
+            messageText = 'Hey, am ' + date + ' gibts folgendes zum futtern: \n\n'
             meals.forEach(meal => {
                 messageText +=
                     '\n' +

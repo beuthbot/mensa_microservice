@@ -53,6 +53,7 @@ router.post('/', async (req, res, next) => {
             console.debug(meals)
             // generate an answer out of the filtered meals
             let answerText = await generatedMessage.generateSpecificDayAnswer(
+		dateOfMessage,
                 meals
             )
             // extend the message object, with an answer-attribute containing the response and a
