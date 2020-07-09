@@ -13,6 +13,14 @@ router.post('/', async (req, res, next) => {
     console.log(req.body.message.entities)
     // the message-object itself
     let message = req.body.message
+
+    // XXX FIXME: Temporary error message because of covid-19. Please remove when the situation is resolved.
+    message.answer = {
+        content: 'Der Mensaservice ist aufgrund aktueller Ereignisse nicht verfügbar.',
+        history: ['MensaService']
+    };
+    return res.send(message);
+
     // the date, for which we should fetch the meals. Format: yyyy-mm-dd or dd-mm-yyyy
     let dateOfMessage = ''
     // the items, after which we should filter the meals. E.g. vegetarian, vegan,...
